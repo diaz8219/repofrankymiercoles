@@ -30,6 +30,13 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private RolesUsuario rol;
 
+    // Declaración de Relaciones
+
+    // 1. Para representar una relación 1:1 con otra tabla, se crea una variable con la clase como tipo de dato
+    // 2. Identificar el lado principal de la relación (Tabla que contendrá la FK, en este caso es 	Estudiante.java)
+    // 3. Revisar /modelos/Estudiante.java
+    // 4. Conectar de vuelta a Estudiante.java via JsonBackReference (Usando el valor declarado en JsonManagedReference)
+
     @OneToOne(mappedBy = "usuario")
     @JsonBackReference(value = "RelacionUsuarioEstudiante")
     private Estudiante estudiante;

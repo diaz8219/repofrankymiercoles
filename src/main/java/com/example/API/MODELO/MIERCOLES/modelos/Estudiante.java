@@ -10,9 +10,6 @@ import java.util.ArrayList;
 @Table ( name =  "estudiantes")
 public class Estudiante {
 
-    //id(Int)
-    //promedio (double)
-    //fechaNacimiento(LocalDate)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,11 +20,16 @@ public class Estudiante {
     @Column (name = "fechaNacimiento", nullable = false, unique = false)
     private LocalDate fechaNacimiento;
 
+    // Declaración de Relaciones
+    // 3. Configurar relación con tabla Usuario
     @OneToOne
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id")
     @JsonManagedReference(value = "RelacionUsuarioEstudiante")
     private Usuario usuario;
 
+    // Declaración de Relación 1:M
+    // 1. Crear Array (Usando ArrayList), nombre en plural por ser varios elementos.
+    // 2. Usar @JsonManagedReference para conectar a tabla Usuario
     @OneToMany(mappedBy = "estudiante")
     @JsonManagedReference(value = "RelacionEstudianteAsistencia")
     private ArrayList<Asistencia> asistencias;

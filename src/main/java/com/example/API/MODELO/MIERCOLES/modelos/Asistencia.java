@@ -25,6 +25,10 @@ public class Asistencia {
     @Enumerated(EnumType.STRING)
     private EstadosAsistencia estado;
 
+    // Declaración de Relación M:1
+
+    // 2. Declarar variable individual
+    // 3. Construir relación entre tablas (Definir FK)
     @ManyToOne
     @JoinColumn(name = "fk_estudiante", referencedColumnName = "id")
     @JsonBackReference(value = "RelacionEstudianteAsistencia")
