@@ -1,6 +1,7 @@
 package com.example.API.MODELO.MIERCOLES.modelos;
 
 import com.example.API.MODELO.MIERCOLES.ayudas.EstadosAsistencia;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.data.repository.cdi.Eager;
 
@@ -23,6 +24,11 @@ public class Asistencia {
     @Column(name="estado", nullable = false, unique = false)
     @Enumerated(EnumType.STRING)
     private EstadosAsistencia estado;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_estudiante", referencedColumnName = "id")
+    @JsonBackReference(value = "RelacionEstudianteAsistencia")
+    private Estudiante estudiante;
 
     public Asistencia() {
     }

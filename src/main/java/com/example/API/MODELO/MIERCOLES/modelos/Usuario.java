@@ -2,6 +2,7 @@ package com.example.API.MODELO.MIERCOLES.modelos;
 
 import com.example.API.MODELO.MIERCOLES.ayudas.EstadosUsuario;
 import com.example.API.MODELO.MIERCOLES.ayudas.RolesUsuario;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -28,6 +29,10 @@ public class Usuario {
     @Column(name = "rol", nullable = false, unique = false)
     @Enumerated(EnumType.STRING)
     private RolesUsuario rol;
+
+    @OneToOne(mappedBy = "usuario")
+    @JsonBackReference(value = "RelacionUsuarioEstudiante")
+    private Estudiante estudiante;
 
     public Usuario() {
     }
