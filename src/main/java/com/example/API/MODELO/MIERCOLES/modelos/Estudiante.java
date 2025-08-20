@@ -2,7 +2,6 @@ package com.example.API.MODELO.MIERCOLES.modelos;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 

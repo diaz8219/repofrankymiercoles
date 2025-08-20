@@ -3,7 +3,6 @@ package com.example.API.MODELO.MIERCOLES.modelos;
 import com.example.API.MODELO.MIERCOLES.ayudas.EstadosAsistencia;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.data.repository.cdi.Eager;
 
 import java.time.LocalDate;
 
